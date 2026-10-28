@@ -1,103 +1,163 @@
 import Image from "next/image";
+import Link from "next/link";
+import HeroSlider from "@/components/HeroSlider";
+import SectionHeading from "@/components/SectionHeading";
+import CategoryCard from "@/components/CategoryCard";
+import { categories } from "@/data/site";
+
+const slides = [
+  `/images/f131408a-15c5-4db2-8029-6afe859f7d2d-1-scaled.webp`,
+  `/images/BANNER-01-scaled.webp`,
+];
+
+const collections = [
+  `/images/FB_IMG_1646031393891-1.webp`,
+  `/images/GCSF-40-scaled-1.webp`,
+  `/images/LIOF-RP-04.webp`,
+  `/images/IMG_0987-scaled-1.webp`,
+  `/images/a9c53c0b-4dc0-4f83-b1e6-bb6649aa30f7.webp`,
+  `/images/06_01bdd2e7-281d-49df-961f-c32bd14ebbfd_1600x.webp`,
+];
+
+const materials = [
+  { name: "ROPE TABLE SET", image: `/images/OD-DINE-4980-GREY-SET_scene2.webp` },
+  { name: "WICKER DINING SET", image: `/images/LIOF-BR-16-768x472-1.webp` },
+  { name: "CAST IRON TABLE SET", image: `/images/LIOF-CA-01-1024x640-1.webp` },
+];
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <>
+      <HeroSlider slides={slides} />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+      {/* Intro */}
+      <section className="bg-white px-4 py-16 md:py-20">
+        <div className="mx-auto grid max-w-[1290px] items-center gap-10 lg:grid-cols-2">
+          <div className="relative hidden aspect-[4/3] overflow-hidden lg:block">
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+              src="/images/DSC_4313-scaled-1.webp"
+              alt="Outdoor Garden Furniture in Noida"
+              fill
+              sizes="50vw"
+              className="object-cover"
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+          </div>
+          <div>
+            <h2 className="text-[28px] font-bold uppercase text-ink md:text-[32px]">Latest Outdoor Furniture</h2>
+            <span className="mt-3 block h-[3px] w-[200px] bg-brand" />
+            <h4 className="mt-6 text-xl font-semibold uppercase text-brand">Outdoor Garden Furniture in Delhi</h4>
+            {/* On mobile/tablet the image sits under the red heading instead of beside the text. */}
+            <div className="relative mt-5 aspect-[4/3] overflow-hidden lg:hidden">
+              <Image
+                src="/images/DSC_4313-scaled-1.webp"
+                alt="Outdoor Garden Furniture in Noida"
+                fill
+                sizes="100vw"
+                className="object-cover"
+              />
+            </div>
+            <div className="mt-4 space-y-4 text-[17px] leading-relaxed">
+              <p>
+                The ideal option for designing an attractive and pleasant outdoor run is Delhi&rsquo;s Latest Outdoor
+                Furniture&rsquo;s{" "}
+                <Link href="/product" className="font-bold text-ink hover:text-brand">outdoor garden furniture</Link>. We
+                have a large selection of high-quality furniture in our collection that is made to be protect and offers
+                exclusive comfort and style. We have furniture for any outdoor area, if you&rsquo;re searching for
+                comfortable sitting options, stylish dining sets, or long-lasting loungers.
+              </p>
+              <p>
+                At Latest Outdoor Furniture, both practicality and beauty are given top priority. Because our furniture is
+                constructed from high-quality materials, it will survive for many years. Your ideal outdoor setup may be
+                delivered right to your door with free shipping available throughout Delhi.
+              </p>
+              <p>
+                With our outdoor garden furniture in Delhi, you can turn your patio, balcony, or garden into a lovely and
+                welcoming area. Order now and bring comfort and style to your garden!
+              </p>
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </section>
+
+      {/* Collections */}
+      <section className="bg-cream px-4 py-16 md:py-20">
+        <div className="mx-auto max-w-[1290px]">
+          <SectionHeading lineWidth={155}>Collections</SectionHeading>
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
+            {collections.map((src, i) => (
+              <div key={src} className="group relative h-[200px] overflow-hidden md:h-[300px]">
+                <Image
+                  src={src}
+                  alt={`Outdoor furniture collection ${i + 1}`}
+                  fill
+                  sizes="(max-width:768px) 50vw, 33vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-white/30 opacity-0 transition-opacity group-hover:opacity-100" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Outdoor parties */}
+      <section
+        className="relative flex min-h-[550px] items-center bg-cover bg-fixed bg-center px-4 py-16"
+        style={{ backgroundImage: `url(/images/41c46ebb45b478191da397e776b4a46c.webp)` }}
+      >
+        <div className="absolute inset-0 bg-black/50" />
+        <div className="relative mx-auto w-full max-w-[1290px]">
+          <div className="max-w-2xl text-white">
+            <h2 className="text-3xl font-bold md:text-[40px]">Outdoor Parties and Gatherings</h2>
+            <p className="mt-5 text-lg">
+              If you host outdoor parties or gatherings, wicker daybeds serve as comfortable seating options for your
+              guests. Additionally, their stylish design adds attractiveness to your outdoor area.
+            </p>
+            <ul className="mt-5 space-y-2 text-lg font-bold">
+              {["Poolside Relaxation", "Patio Furniture", "Gardens and Balconies"].map((t) => (
+                <li key={t} className="flex items-center gap-3">
+                  <span className="h-2 w-2 rounded-full bg-brand" /> {t}
+                </li>
+              ))}
+            </ul>
+            <Link
+              href="/product"
+              className="relative mt-8 inline-block overflow-hidden border-2 border-white px-8 py-3.5 font-semibold uppercase tracking-wider text-white transition-colors before:absolute before:inset-0 before:-z-0 before:origin-left before:scale-x-0 before:bg-brand before:transition-transform before:duration-300 hover:border-brand hover:before:scale-x-100"
+            >
+              <span className="relative">Explore Now</span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Shop by material */}
+      <section className="bg-white px-4 py-16 md:py-20">
+        <div className="mx-auto max-w-[1290px]">
+          <SectionHeading>Shop By Material</SectionHeading>
+          <div className="grid gap-6 md:grid-cols-3">
+            {materials.map((m) => (
+              <div key={m.name} className="bg-cream p-5 transition-colors hover:bg-cream-hover">
+                <div className="relative h-[250px] overflow-hidden md:h-[300px]">
+                  <Image src={m.image} alt={m.name} fill sizes="(max-width:768px) 100vw, 33vw" className="object-cover" />
+                </div>
+                <h4 className="pt-5 text-center text-[22px] font-normal text-black">{m.name}</h4>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Categories */}
+      <section className="bg-white px-4 pb-20">
+        <div className="mx-auto max-w-[1290px]">
+          <SectionHeading lineWidth={120}>Categories</SectionHeading>
+          <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-5">
+            {categories.map((c) => (
+              <CategoryCard key={c.slug} href={`/${c.slug}`} name={c.name} image={c.image} />
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
   );
 }
