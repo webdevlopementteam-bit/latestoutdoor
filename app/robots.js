@@ -6,3 +6,5 @@ export default function robots() {
     sitemap: `${SITE_URL}/sitemap.xml`,
   };
 }
+
+export const dynamic = "force-static";
